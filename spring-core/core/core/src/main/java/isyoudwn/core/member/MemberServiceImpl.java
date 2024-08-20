@@ -1,8 +1,11 @@
 package isyoudwn.core.member;
 
 public class MemberServiceImpl implements MemberService{
+    private final MemberRepository memberRepository;
 
-    MemberRepository memberRepository = new MemoryMemberRepository();
+    public MemberServiceImpl(MemberRepository memberRepository) {
+        this.memberRepository = memberRepository;
+    }
 
     @Override
     public void join(Member member) {
