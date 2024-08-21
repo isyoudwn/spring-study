@@ -2,6 +2,7 @@ package isyoudwn.core;
 
 import isyoudwn.core.discount.DiscountPolicy;
 import isyoudwn.core.discount.FixDiscountPolicy;
+import isyoudwn.core.discount.RateDiscountPolicy;
 import isyoudwn.core.member.MemberRepository;
 import isyoudwn.core.member.MemberService;
 import isyoudwn.core.member.MemberServiceImpl;
@@ -25,7 +26,8 @@ public class AppConfig {
     }
 
     private DiscountPolicy discountPolicy() {
-        return new FixDiscountPolicy();
+//        return new FixDiscountPolicy();
+        return new RateDiscountPolicy();
     }
 
 }
