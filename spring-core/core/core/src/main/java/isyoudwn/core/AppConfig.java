@@ -16,13 +16,25 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 // 생성자를 통해 객체 주입
 public class AppConfig {
+    // @Bean memberService -> new MemoryMemberRepository()
+    // @Bean orderService -> new MemoryMemberRepository()
+
+
+    // call AppConfig,memberService
+    // call AppConfig.memberRepository
+    // call AppConfig.memberRepository
+    // call AppConfig.orderService
+    // call AppConfig.memberRepository
+
     @Bean
     public MemberService memberService() {
+        System.out.println("AppConfig.memberService");
         return new MemberServiceImpl(memberRepository());
     }
 
     @Bean
     public MemberRepository memberRepository() {
+        System.out.println("AppConfig.memberRepository");
         return new MemoryMemberRepository();
     }
 
@@ -33,6 +45,7 @@ public class AppConfig {
 
     @Bean
     public DiscountPolicy discountPolicy() {
+        System.out.println("AppConfig.discountPolicy");
 //        return new FixDiscountPolicy();
         return new RateDiscountPolicy();
     }
