@@ -1,6 +1,9 @@
 package isyoudwn.core.lifecycle;
 
 
+import jakarta.annotation.PostConstruct;
+import jakarta.annotation.PreDestroy;
+
 public class NetworkClient  {
 
     private String url;
@@ -28,12 +31,15 @@ public class NetworkClient  {
     }
 
 
+    @PostConstruct
     // 의존관계 주입이 끝나면 호출
     public void init() {
         connect();
         call("초기화 연결 메세지");
     }
 
+
+    @PreDestroy
     // 소멸할 때 호출
     public void close() {
         disconnect();
